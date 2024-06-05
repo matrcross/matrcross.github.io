@@ -2190,9 +2190,9 @@ pre code {
 .form-control:focus {
   color: #495057;
   background-color: #fff;
-  border-color: #ffdfd7;
+  border-color: #495057;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(255, 122, 87, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(85, 85, 85, 0.25);
 }
 
 .form-control::-webkit-input-placeholder {
@@ -11004,6 +11004,17 @@ pre {
   border: 2px solid #ced4da;
   padding: 1rem;
   border-radius: 0.25rem;
+}
+
+.copy-message {
+  margin-left: 10px;
+  color: green;
+  font-size: 0.9em;
+  display: none;
+}
+
+#copy-mail {
+  cursor: pointer;
 }
 
 .socials {

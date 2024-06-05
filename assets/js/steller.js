@@ -29,4 +29,42 @@ $(document).ready(function(){
 			});
       	} 
     });
+
+	$("#copy-mail").on('click', function() {
+        var textToCopy = $(this).text();
+        var $copyMessage = $(this).find('.copy-message');
+
+        // Remove the copy message from the text to copy
+        textToCopy = textToCopy.replace($copyMessage.text(), '').trim();
+
+        // Check if the clipboard API is supported
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(textToCopy).then(function() {
+                showCopyMessage($copyMessage);
+            }).catch(function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        } else {
+            // Fallback for older browsers
+            var textArea = $('<textarea>').val(textToCopy);
+            $('body').append(textArea);
+            textArea.focus().select();
+            try {
+                document.execCommand('copy');
+                showCopyMessage($copyMessage);
+            } catch (err) {
+                console.error('Could not copy text: ', err);
+            }
+            textArea.remove();
+        }
+    });
+
+    function showCopyMessage($messageElement) {
+        $messageElement.show();
+        setTimeout(function() {
+            $messageElement.fadeOut();
+        }, 2000);
+    }
 });
+
+
