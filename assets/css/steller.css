@@ -11075,7 +11075,13 @@ pre {
   overflow: hidden;
   margin-bottom: 30px;
   display: block;
-  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img-wrapper:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .img-wrapper img {
@@ -11238,7 +11244,7 @@ pre {
   border-radius: 0.3rem;
   border: 1px solid 1px;
   box-shadow: 1px 2px 6px rgba(173, 181, 189, 0.5);
-  padding: 0 30px 0 25px;
+  padding: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
